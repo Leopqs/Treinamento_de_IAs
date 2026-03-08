@@ -1,2 +1,4 @@
 # Treinamento_de_IAs
-repositório utilizado para envios dos trabalhos da matéria de IA
+ Repositório utilizado para envios dos trabalhos da matéria de IA.
+                                                                                                                                                                                                                          
+1º trabalho:                                                                                                                                                                                                              Previsão de suceeso de artistas com base na porcentagem de obras publicadas x obras vendidas em vida;                                                                                                                    Integrantes: Leonardo Enz, Bruno Novodovoski, Vinicius Zamora.

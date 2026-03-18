@@ -1,0 +1,121 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPqlo1SMOv7D0MmB0wiE6GI",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Leopqs/Treinamento_de_IAs/blob/main/SegundoTrabalho.ipbynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "G-rct2hBGds5",
+        "outputId": "a05f4b9e-45fc-4ffa-9a61-6acf0b1a1545"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Probabilidade de gelatinosa: 0.6515\n",
+            "Probabilidade de nenhuma: 0.2324\n",
+            "Probabilidade de dura: 0.1162\n"
+          ]
+        }
+      ],
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "# Dados de exemplo com base nas imagens fornecidas\n",
+        "data = {\n",
+        "    'Idade': ['infantil', 'infantil', 'infantil', 'infantil', 'adolescente', 'adolescente', 'adolescente', 'adolescente', 'adolescente', 'adolescente', 'adolescente', 'adulto', 'adulto', 'adulto', 'adulto'],\n",
+        "    'Diagnóstico': ['miopia', 'miopia', 'hipermetropia', 'hipermetropia', 'miopia', 'miopia', 'miopia', 'hipermetropia', 'hipermetropia', 'hipermetropia', 'hipermetropia', 'miopia', 'miopia', 'hipermetropia', 'hipermetropia'],\n",
+        "    'Astigmatismo': ['não', 'sim', 'não', 'sim', 'não', 'sim', 'não', 'não', 'sim', 'sim', 'não', 'não', 'sim', 'não', 'sim'],\n",
+        "    'Taxa lacrimal': ['reduzida', 'normal', 'normal', 'normal', 'reduzida', 'reduzida', 'normal', 'reduzida', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal'],\n",
+        "    'Tipo de lente': ['nenhuma', 'gelatinosa', 'gelatinosa', 'dura', 'gelatinosa', 'gelatinosa', 'nenhuma', 'gelatinosa', 'dura', 'gelatinosa', 'gelatinosa', 'gelatinosa', 'gelatinosa', 'gelatinosa', 'gelatinosa']\n",
+        "}\n",
+        "\n",
+        "# Criar um DataFrame com os dados\n",
+        "df = pd.DataFrame(data)\n",
+        "\n",
+        "# Suavização Laplaciana (α = 1)\n",
+        "alpha = 1\n",
+        "\n",
+        "# Função para calcular a probabilidade de uma classe com Naive Bayes\n",
+        "def naive_bayes(df, patient):\n",
+        "    # Contagens dos valores por classe\n",
+        "    class_counts = df['Tipo de lente'].value_counts()\n",
+        "    total_records = len(df)\n",
+        "\n",
+        "    # Probabilidade a priori de cada classe\n",
+        "    class_prob = class_counts / total_records\n",
+        "\n",
+        "    # Calcular as probabilidades condicionais com suavização laplaciana\n",
+        "    conditional_prob = {}\n",
+        "    for column in df.columns[:-1]:  # Excluir a última coluna (Tipo de lente)\n",
+        "        for value in df[column].unique():\n",
+        "            for label in class_counts.index:\n",
+        "                # Subconjunto dos dados que pertencem à classe\n",
+        "                subset = df[df['Tipo de lente'] == label]\n",
+        "                # Contagem de cada valor de atributo condicionado à classe\n",
+        "                count = subset[column].value_counts().get(value, 0)\n",
+        "                # Suavização Laplaciana\n",
+        "                prob = (count + alpha) / (len(subset) + alpha * len(df[column].unique()))\n",
+        "                conditional_prob[(column, value, label)] = prob\n",
+        "\n",
+        "    # Calcular as probabilidades do paciente para cada classe\n",
+        "    patient_prob = {}\n",
+        "    for label in class_counts.index:\n",
+        "        prob = class_prob[label]\n",
+        "        for column, value in patient.items():\n",
+        "            prob *= conditional_prob.get((column, value, label), 0)\n",
+        "        patient_prob[label] = prob\n",
+        "\n",
+        "    # Normalizar as probabilidades\n",
+        "    total_prob = sum(patient_prob.values())\n",
+        "    normalized_prob = {key: value / total_prob for key, value in patient_prob.items()}\n",
+        "\n",
+        "    return normalized_prob\n",
+        "\n",
+        "# Exemplo de paciente\n",
+        "patient = {\n",
+        "    'Idade': 'infantil',\n",
+        "    'Diagnóstico': 'hipermetropia',\n",
+        "    'Astigmatismo': 'não',\n",
+        "    'Taxa lacrimal': 'reduzida'\n",
+        "}\n",
+        "\n",
+        "# Resultado das probabilidades normalizadas\n",
+        "probabilidades = naive_bayes(df, patient)\n",
+        "\n",
+        "# Exibir as probabilidades\n",
+        "for classe, prob in probabilidades.items():\n",
+        "    print(f'Probabilidade de {classe}: {prob:.4f}')"
+      ]
+    }
+  ]
+}

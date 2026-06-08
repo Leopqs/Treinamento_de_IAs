@@ -7,4 +7,5 @@
   Para testar a aula 007 você precisará baixar a basta imagens_formas e compactá-la em um arquivo zip com o mesmo nome do código
 
 
-    https://www.kaggle.com/datasets/sefakocakalay/diabets
+[    https://www.kaggle.com/datasets/sefakocakalay/diabets
+](https://www.kaggle.com/datasets/alexteboul/diabetes-health-indicators-dataset/data)

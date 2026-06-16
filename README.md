@@ -64,48 +64,57 @@ https://diabetes.org.br/pre-diabetes-pode-ser-revertido-se-diagnosticado-precoce
   O primeiro algoritmo utiliza o método Naive Bayes e o segundo um Stacking de Random Forest, Gradient Boosting e Knn. Ambos tiveram seus dados reamostrados com as técnicas de SMOTE e Tomek links, para tentar ao máximo evitar classes majoritárias e o enviesamento do modelo.
 
 ● Avaliação dos modelos:
-
-Naive Bayes:
-
-
-
-
-
-
-
-
-
-
-
-Stacking:
-
-
-
-
-● Comparação dos resultados:
+  
   Naive Bayes:
+![metricas_NB](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/metricasNB.png)
+![metricas_detalhadas_NB](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/metricasDetalhadasNB.png)
+![matriz_confusão_NB](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/MCNB.png)
+![curva_ROC_NB](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/CurvaROCNB.png)
+![balanceamento_NB](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/balanceamentoNB.png)
 
+  
   Stacking:
+![metricas_stacking](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/metricasStacking.png)
+![metricas_detalhadas](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/metricasDetalhadasStacking.png)
+![matriz_confusão_stacking](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/MCStacking.png)
+![curva_ROC_stacking](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/CurvaROCStacking.png)
 
+  
+● Comparação dos resultados:
+  
+  Naive Bayes:
+![metricas_NB](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/metricasNB.png)
+  
+  Stacking:
+![metricas_stacking](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/metricasStacking.png)
 
+  
   Pelas métricas gerais é possível dizer que o modelo stacking uma performance mais satisfatória provavelmente pela base de dados ser bem grande, então um modelo complexo cairia melhor. Ainda assim, o algoritmo NB acertou mais verdadeiros positivos, talvez indicando um enviesamento do stacking.
 
   Matrizes de confusão:
-   NB:
+  
+  NB:
+![matriz_confusão_NB](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/MCNB.png)
+  
+  Stacking:
+![matriz_confusão_stacking](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/MCStacking.png)
 
-    Stacking:
-
-
+  
   Pela matriz de confusão conseguimos ver mais claramente o motivo da diferença de recall dos modelos e quantos exatamente ele acertou, o stacking consegui diminuir muito a taxa de erro para pessoas não diabéticas, porém falha em identificar mais pessoas diabéticas do que o NB. A causa pode estar ligada também com enviesamento.
 
 
   Curvas ROC:
-    NB:
+  
+  NB:
+![balanceamento_NB](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/balanceamentoNB.png)
 
-    Stacking: 
+  
+  Stacking: 
+![curva_ROC_stacking](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/CurvaROCStacking.png)
 
-
+  
   O gráfico da curva roc não apresenta diferenças discrepantes, pois como vimos anteriormente na matriz de confusão, quando o stacking diminuiu muito a sua taxa de classificação de falsos positivos ele não conseguiu classificar tantos verdadeiros positivos quanto o NB. Consequência que pode estar relacionada também ao enviesamento do algoritmo.
 
 ● Conclusão:
+  
   Não podemos concluir que o stacking realmente foi melhor do que o NB, porque por mais que ele apresente melhores métricas, devemos lembrar de que inicialmente a base de dados estava desbalanceada para a classe de não diabetes, e como foi visto na matriz de confusão, o algoritmo NB acertou mais classes diabetes do que o algoritmo stacking, indicando um possível enviesamento e necessidade de reajuste de pesos. Em uma solução cujo objetivo é identificar um problema de saúde é melhor dar um falso positivo do que um falso negativo, então a melhor escolha seria o NB.

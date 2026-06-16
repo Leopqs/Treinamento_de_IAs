@@ -120,7 +120,7 @@ https://diabetes.org.br/pre-diabetes-pode-ser-revertido-se-diagnosticado-precoce
   
   NB:  
   
-![balanceamento_NB](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/balanceamentoNB.png)
+![curva_ROC_NB](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/CurvaROCNB.png)
 
   
   Stacking:  

@@ -65,11 +65,15 @@ https://diabetes.org.br/pre-diabetes-pode-ser-revertido-se-diagnosticado-precoce
 
 ● Avaliação dos modelos:
   
-  Naive Bayes:
+  Naive Bayes:  
 ![metricas_NB](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/metricasNB.png)
+  
 ![metricas_detalhadas_NB](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/metricasDetalhadasNB.png)
+  
 ![matriz_confusão_NB](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/MCNB.png)
+  
 ![curva_ROC_NB](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/CurvaROCNB.png)
+  
 ![balanceamento_NB](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/balanceamentoNB.png)
 
   

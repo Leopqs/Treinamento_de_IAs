@@ -66,6 +66,7 @@ https://diabetes.org.br/pre-diabetes-pode-ser-revertido-se-diagnosticado-precoce
 ● Avaliação dos modelos:
   
   Naive Bayes:  
+  
 ![metricas_NB](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/metricasNB.png)
   
 ![metricas_detalhadas_NB](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/metricasDetalhadasNB.png)
@@ -77,19 +78,25 @@ https://diabetes.org.br/pre-diabetes-pode-ser-revertido-se-diagnosticado-precoce
 ![balanceamento_NB](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/balanceamentoNB.png)
 
   
-  Stacking:
+  Stacking:  
+  
 ![metricas_stacking](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/metricasStacking.png)
+  
 ![metricas_detalhadas](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/metricasDetalhadasStacking.png)
+  
 ![matriz_confusão_stacking](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/MCStacking.png)
+  
 ![curva_ROC_stacking](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/CurvaROCStacking.png)
 
   
 ● Comparação dos resultados:
   
-  Naive Bayes:
+  Naive Bayes:  
+  
 ![metricas_NB](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/metricasNB.png)
   
-  Stacking:
+  Stacking:  
+  
 ![metricas_stacking](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/metricasStacking.png)
 
   
@@ -97,10 +104,12 @@ https://diabetes.org.br/pre-diabetes-pode-ser-revertido-se-diagnosticado-precoce
 
   Matrizes de confusão:
   
-  NB:
+  NB:  
+  
 ![matriz_confusão_NB](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/MCNB.png)
   
-  Stacking:
+  Stacking:  
+  
 ![matriz_confusão_stacking](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/MCStacking.png)
 
   
@@ -109,11 +118,13 @@ https://diabetes.org.br/pre-diabetes-pode-ser-revertido-se-diagnosticado-precoce
 
   Curvas ROC:
   
-  NB:
+  NB:  
+  
 ![balanceamento_NB](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/balanceamentoNB.png)
 
   
-  Stacking: 
+  Stacking:  
+  
 ![curva_ROC_stacking](https://github.com/Leopqs/Treinamento_de_IAs/blob/main/2bimestre/graficos_trabalho/CurvaROCStacking.png)
 
   
